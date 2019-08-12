@@ -152,7 +152,7 @@ const content = script =>
         left: 0;
         right: 0;
         top: 0;
-        bottom: 32px;
+        bottom: 0;
       }
       .m-signature-pad--footer {
         left: 20px;
@@ -173,11 +173,6 @@ const content = script =>
   <div id="signature-pad" class="m-signature-pad">
     <div class="m-signature-pad--body">
       <canvas></canvas>
-    </div>
-    <div class="m-signature-pad--footer">
-      <div class="description"><%description%></div>
-      <button type="button" class="button clear" data-action="clear"><%clear%></button>
-      <button type="button" class="button save" data-action="save"><%confirm%></button>
     </div>
   </div>
 
