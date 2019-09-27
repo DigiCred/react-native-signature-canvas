@@ -24,9 +24,9 @@ const content = `
     signaturePad = new SignaturePad(canvas);
     
     clearButton.addEventListener("click", function (event) {
-        window.postMessage("clear")
-        window.ReactNativeWebView.postMessage("CLEAR")
         signaturePad.clear();
+        window.ReactNativeWebView.postMessage("CLEAR")
+       
     });
     
     saveButton.addEventListener("click", function (event) {
