@@ -80,6 +80,7 @@ class SignatureView extends Component {
                     {...this._panResponder.panHandlers}
                     androidHardwareAccelerationDisabled
                     useWebKit={true}
+                    bounces={false}
                     source={this.source}
                     onMessage={this.getSignature}
                     javaScriptEnabled={true}
