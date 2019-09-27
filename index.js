@@ -65,9 +65,9 @@ class SignatureView extends Component {
 
         onPanResponderMove: (e, gestureState) => {
             if ((Math.abs(gestureState.dx) > 0) || (Math.abs(gestureState.dy) > 0))
-                this.props.hasSigned(true, '')
+                this.props.hasSigned && this.props.hasSigned(true, '')
             else
-                this.props.hasSigned(false, '')
+                this.props.hasSigned && this.props.hasSigned(false, '')
             return true
         }
     })
