@@ -31,7 +31,6 @@ class SignatureView extends Component {
         this.state = {
             base64DataUrl: props.dataURL || null
         };
-
         const injectedJavaScript = injectedSignaturePad + injectedApplication;
         let html = htmlContent(injectedJavaScript);
         html = html.replace('<%style%>', webStyle);
@@ -44,11 +43,13 @@ class SignatureView extends Component {
 
     getSignature = e => {
         const {onOK, onEmpty} = this.props;
-        if (e.nativeEvent.data === "EMPTY") {
-            onEmpty();
-        } else {
-            onOK(e.nativeEvent.data);
+        if (e.nativeEvent.data === 'CLEAR') {
+            this.props.hasSigned(false, 'clear')
         }
+        if (e.nativeEvent.data === "EMPTY")
+            onEmpty();
+        else
+            onOK(e.nativeEvent.data);
     };
 
     _renderError = args => {
@@ -64,9 +65,9 @@ class SignatureView extends Component {
 
         onPanResponderMove: (e, gestureState) => {
             if ((Math.abs(gestureState.dx) > 0) || (Math.abs(gestureState.dy) > 0))
-                this.props.hasSigned(true)
+                this.props.hasSigned(true, '')
             else
-                this.props.hasSigned(false)
+                this.props.hasSigned(false, '')
             return true
         }
     })
